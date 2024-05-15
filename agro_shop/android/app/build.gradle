@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion flutter.compileSdkVersion.toInteger()
+    buildToolsVersion flutter.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.example.myapp"
+        minSdkVersion flutter.minSdkVersion.toInteger()
+        targetSdkVersion flutter.targetSdkVersion.toInteger()
+        versionCode flutter.versionCode.toInteger()
+        versionName flutter.versionName
+        multiDexEnabled true  // Добавление поддержки для MultiDex, если необходимо
+    }
+
+    buildTypes {
+        release {
+            // Здесь должна быть конфигурация подписи для релизной сборки
+            // signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1'  // Используйте androidx для поддержки MultiDex
+    implementation 'com.google.firebase:firebase-analytics:20.0.3'  // Обновленная версия Firebase Analytics
+    // Добавьте другие зависимости по необходимости
+}
+
+apply plugin: 'com.google.gms.google-services'  // Подключение плагина Google Services для Firebase

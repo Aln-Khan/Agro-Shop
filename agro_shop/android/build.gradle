@@ -1,0 +1,17 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://pub.dev/' } // Репозиторий для пакетов Flutter/Dart
+    }
+
+    // Настройка путей сборки
+    rootProject.buildDir = "../build"
+    subprojects {
+        project.buildDir = "${rootProject.buildDir}/${project.name}"
+    }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
